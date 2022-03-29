@@ -34,7 +34,7 @@ a {
   text-align: center;
   position: absolute;
   bottom: -52%;
-  opacity: 85%;
+  opacity: 85% !important ;
   width: 100%;
   height: 22vh;
   background-color: black;
