@@ -1,0 +1,43 @@
+.filter_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 2vh;
+  width: 100%;
+}
+
+.filter_select {
+  border: 2px solid #ff4e00;
+  background-color: black;
+  height: 2.2rem;
+  color: #ff4e00;
+  font-family: undertale;
+  font-size: 1.5rem;
+  margin: 1vh;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filter_select:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid grey;
+}
+
+.filter_remove {
+  border: 2px solid #ff4e00;
+  background-color: #ff4e00;
+  height: 2.2rem;
+  color: black;
+  font-family: undertale;
+  font-size: 1.5rem;
+  margin: 1vh;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filter_remove:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid grey;
+}
