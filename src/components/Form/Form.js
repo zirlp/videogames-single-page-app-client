@@ -263,6 +263,7 @@ const Form = () => {
           <div className="select_container">
             <label className="select_label">Select genre:</label>
             <select onChange={handleGenres} className="select_form">
+              <option value={"genre"}>Genres</option>
               {genres.map((genres) => (
                 <option value={genres.name} key={genres.name}>
                   {genres.name}
@@ -286,6 +287,7 @@ const Form = () => {
           <div className="select_container">
             <label className="select_label">Select platform:</label>
             <select onChange={handlePlatforms} className="select_form">
+              <option value={"platform"}>Platforms</option>
               {allPlatforms.map((platform) => (
                 <option value={platform} key={platform}>
                   {platform}
