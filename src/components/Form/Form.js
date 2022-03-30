@@ -82,16 +82,18 @@ const Form = () => {
   //handlers --------------------------------------------------
   //guardo los géneros en el input
   const handleGenres = (gen) => {
-    if (!input.genres.includes(gen.target.value)) {
-      setInput({
-        ...input,
-        genres: [...input.genres, gen.target.value],
-      });
-      setErrors(
-        validate({
+    if (gen.target.value !== "Genres") {
+      if (!input.genres.includes(gen.target.value)) {
+        setInput({
           ...input,
-        })
-      );
+          genres: [...input.genres, gen.target.value],
+        });
+        setErrors(
+          validate({
+            ...input,
+          })
+        );
+      }
     }
   };
   //un filtro para eliminar los generos
@@ -109,17 +111,20 @@ const Form = () => {
   };
   //lo mismo para platforms
   const handlePlatforms = (plat) => {
-    if (!input.platforms.includes(plat.target.value)) {
-      setInput({
-        ...input,
-        platforms: [...input.platforms, plat.target.value],
-      });
-      setErrors(
-        validate({
+    if (plat.target.value !== "Platforms") {
+      if (!input.platforms.includes(plat.target.value)) {
+        setInput({
           ...input,
-        })
-      );
+          platforms: [...input.platforms, plat.target.value],
+        });
+        setErrors(
+          validate({
+            ...input,
+          })
+        );
+      }
     }
+    
   };
 
   const deletePlatform = (plat) => {
@@ -263,6 +268,7 @@ const Form = () => {
           <div className="select_container">
             <label className="select_label">Select genre:</label>
             <select onChange={handleGenres} className="select_form">
+              <option value={"Genres"}>Genres</option>
               {genres.map((genres) => (
                 <option value={genres.name} key={genres.name}>
                   {genres.name}
@@ -286,6 +292,7 @@ const Form = () => {
           <div className="select_container">
             <label className="select_label">Select platform:</label>
             <select onChange={handlePlatforms} className="select_form">
+              <option value={"platforms"}>Platforms</option>
               {allPlatforms.map((platform) => (
                 <option value={platform} key={platform}>
                   {platform}

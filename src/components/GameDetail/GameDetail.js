@@ -27,6 +27,13 @@ const GameDetail = () => {
   for (const prop in genresObj) {
     genres.push(genresObj[prop]);
   }
+  
+    
+  function isFromDB() {
+    if (Number(id)) return (detail.description_raw);
+    return (detail.description);
+  }
+  
   // ------------------------------------------------- :v
 
   useEffect(() => {
@@ -99,7 +106,7 @@ const GameDetail = () => {
           <h5>Rating: {detail.rating}</h5>
         </div>
 
-        <div className="detail_txt">{detail.description_raw} </div>
+        <div className="detail_txt">{isFromDB()} </div>
         <div className="detail_platContainer">
           <div>{"Platforms:"} </div>
           {platforms.map((platform) => (
