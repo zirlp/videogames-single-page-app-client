@@ -28,10 +28,10 @@ const GameDetail = () => {
     genres.push(genresObj[prop]);
   }
   
-    let description;
+    
   function isFromDB() {
-    if (Number(id)) return (description = detail.description_raw);
-    return (description = detail.description);
+    if (Number(id)) return (detail.description_raw);
+    return (detail.description);
   }
   
   // ------------------------------------------------- :v
