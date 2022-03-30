@@ -82,7 +82,7 @@ const Form = () => {
   //handlers --------------------------------------------------
   //guardo los géneros en el input
   const handleGenres = (gen) => {
-    if (plat.target.value !== "Genres") {
+    if (gen.target.value !== "Genres") {
       if (!input.genres.includes(gen.target.value)) {
         setInput({
           ...input,
