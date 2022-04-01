@@ -27,20 +27,19 @@ const GameDetail = () => {
   for (const prop in genresObj) {
     genres.push(genresObj[prop]);
   }
-  
-    
+
   function isFromDB() {
-    if (Number(id)) return (detail.description_raw);
-    return (detail.description);
+    if (Number(id)) return detail.description_raw;
+    return detail.description;
   }
-  
+
   // ------------------------------------------------- :v
 
   useEffect(() => {
     dispatch(getGameDetail(id));
   }, [dispatch, id]);
 
-  // if i do 2 useEffects the fetch is made just once  :), otherwise; would dispatch getGameDetail when the id changes.
+  // if i do 2 useEffects the fetch is made just once  :), otherwise; would dispatch getGameDetail everytime the id changes.
   useEffect(() => {
     setLoading(true);
     if (detail.id === id) {
@@ -105,7 +104,7 @@ const GameDetail = () => {
           <h5> Release date: {detail.released}</h5>
           <h5>Rating: {detail.rating}</h5>
         </div>
-
+        {/* hay que diferenciarlo */}
         <div className="detail_txt">{isFromDB()} </div>
         <div className="detail_platContainer">
           <div>{"Platforms:"} </div>
