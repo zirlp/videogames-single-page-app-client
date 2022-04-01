@@ -52,7 +52,7 @@ export function addGame(payload) {
 export function getGameDetail(id) {
   return async (dispatch) => {
     try {
-      const requestDetail = await axios.get(`${BASE_URL}/videogames${id}`);
+      const requestDetail = await axios.get(`${BASE_URL}/videogames/${id}`);
       return dispatch({ type: GET_GAME_DETAIL, payload: requestDetail.data });
     } catch (error) {
       window.location.replace("/nope");
