@@ -10,3 +10,4 @@ export const DELETE_GAME = "DELETE_GAME";
 export const ORDER = "ORDER";
 export const GET_PLATFORMS = "GET_PLATFORMS";
 export const RESET = "RESET";
+export const BASE_URL = "https://videogames-single-page-app.herokuapp.com";

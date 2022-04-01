@@ -10,12 +10,13 @@ import {
   ORDER,
   GET_PLATFORMS,
   RESET,
+  BASE_URL,
 } from "./Constants";
 import axios from "axios";
 
 export function getGames() {
   return async function (dispatch) {
-    let request = await axios.get("http://127.0.0.1:3001/videogames");
+    let request = await axios.get(`${BASE_URL}/videogames`);
     // const allGames = request.data;
     try {
       return dispatch({ type: GET_ALL, payload: request.data });
@@ -23,17 +24,11 @@ export function getGames() {
       console.log(error.message);
     }
   };
-
-  // return new Promise((resolve, reject) => {
-  //   let request = axios.get("http://127.0.0.1:3001/videogames");
-  //   // const allGames = request.data;
-  //   resolve({ type: GET_ALL, payload: request.data });
-  // });
 }
 
 export function getGenres() {
   return async function (dispatch) {
-    let requestGenres = await axios.get("http://127.0.0.1:3001/genres");
+    let requestGenres = await axios.get(`${BASE_URL}/genres`);
     // const allGenres = requestGenres.data;
     try {
       return dispatch({ type: GET_GENRES, payload: requestGenres.data });
@@ -46,10 +41,7 @@ export function getGenres() {
 export function addGame(payload) {
   return async (dispatch) => {
     try {
-      const post = await axios.post(
-        "http://127.0.0.1:3001/videogames/add",
-        payload
-      );
+      const post = await axios.post(`${BASE_URL}/videogames/add`, payload);
       return post;
     } catch (error) {
       console.log(error.message);
@@ -60,9 +52,7 @@ export function addGame(payload) {
 export function getGameDetail(id) {
   return async (dispatch) => {
     try {
-      const requestDetail = await axios.get(
-        `http://127.0.0.1:3001/videogames/${id}`
-      );
+      const requestDetail = await axios.get(`${BASE_URL}/videogames${id}`);
       return dispatch({ type: GET_GAME_DETAIL, payload: requestDetail.data });
     } catch (error) {
       window.location.replace("/nope");
@@ -118,7 +108,7 @@ export function removeFilters() {
 export function deleteGame(id) {
   return async (dispatch) => {
     try {
-      await axios.delete(`http://127.0.0.1:3001/videogames/${id}`);
+      await axios.delete(`${BASE_URL}/videogames${id}`);
       return dispatch({ type: DELETE_GAME });
     } catch (error) {
       console.log(error.message);
@@ -129,7 +119,7 @@ export function deleteGame(id) {
 export function getPlatforms() {
   return async (dispatch) => {
     try {
-      const platforms = await axios.get(`http://127.0.0.1:3001/platforms`);
+      const platforms = await axios.get(`${BASE_URL}/platforms`);
       return dispatch({ type: GET_PLATFORMS, payload: platforms.data });
     } catch (error) {
       console.log(error.message);
