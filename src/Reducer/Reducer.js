@@ -90,6 +90,7 @@ function reducer(state = initState, action) {
       return {
         allVideoGames: [],
         genres: [],
+        platforms: [],
         gameDetail: {},
         order: [],
         gameQuery: [],
